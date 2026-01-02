@@ -1,0 +1,111 @@
+{% set title = 'Dashboard' %}
+{% set filename = 'index.html' %}
+
+{% extends 'src/layouts/master.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="/assets/scss/iconly.scss">
+{% endblock %}
+
+{% block content %}
+<div class="page-heading">
+    <h3>Data-driven Dashboard</h3>
+</div> 
+
+<div class="page-content"> 
+    <!-- Stats cards -->
+    <section class="row">
+        <div class="col-12">
+            <div class="row" id="stats-cards"></div>
+        </div>
+    </section>
+
+    <!-- Charts -->
+    <section class="row mt-4">
+        <!-- Profile Visit -->
+        <div class="col-12 col-lg-8">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4>Profile Visit (Monthly)</h4>
+                </div>
+                <div class="card-body">
+                    <div id="chart-profile-visit"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visitors Profile -->
+        <div class="col-12 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4>Visitors Profile (Gender)</h4>
+                </div>
+                <div class="card-body">
+                    <div id="chart-visitors-profile"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional charts -->
+    <section class="row mt-4 text-center">
+        <div class="col-md-3">
+            <h6>Europe</h6>
+            <div id="chart-europe"></div>
+        </div>
+        <div class="col-md-3">
+            <h6>America</h6>
+            <div id="chart-america"></div>
+        </div>
+        <div class="col-md-3">
+            <h6>India</h6>
+            <div id="chart-india"></div>
+        </div>
+        <div class="col-md-3">
+            <h6>Indonesia</h6>
+            <div id="chart-indonesia"></div>
+        </div>
+    </section>
+
+    <!-- Comments & Messages -->
+    <section class="row mt-4">
+        <!-- Latest Comments -->
+        <div class="col-12 col-lg-8">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4>Latest Comments</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-lg">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody id="comments-body"></tbody> <!-- ✅ placeholder -->
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Messages -->
+        <div class="col-12 col-lg-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h4>Recent Messages</h4>
+                </div>
+                <div class="card-content pb-4" id="messages-container"></div> <!-- ✅ placeholder -->
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block js %}
+<!-- Need: Apexcharts -->
+<script src="assets/extensions/apexcharts/apexcharts.min.js"></script>
+<script type="module" src="assets/static/js/pages/dashboard-data.js"></script>
+{% endblock %}
